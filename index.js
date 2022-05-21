@@ -10,13 +10,13 @@ mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true }, () => consol
 
 //Routes
 const auth_route = require("./routes/auth");
-//const mentor_route = require("./routes/mentor");
+const mentor_route = require("./routes/mentor");
 
 //middleware
 app.use(express.json());
 
 //Route middleware
 app.use("/api/user", auth_route);
-//app.use("/api/mentor", mentor_route);
+app.use("/api/mentor", mentor_route);
 
 app.listen(3000, () => console.log("Server is Up and Running"));
