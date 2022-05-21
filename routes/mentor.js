@@ -10,7 +10,7 @@ router.post("/", async (req, res) => {
   });
   try {
     const savedMentor = await mentor.save();
-    res.send(savedMentor);
+    res.status(200).send(savedMentor);
   } catch (err) {
     res.status(400).send(err);
   }
