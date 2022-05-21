@@ -1,7 +1,7 @@
-const router = require("express").Router();
+const video_route = require("express").Router();
 const Video = require("../model/video");
 
-router.post("/", async (req, res) => {
+video_route.post("/", async (req, res) => {
   const video = new Video({
     mentor: req.body.mentor,
     title: req.body.title,
@@ -12,6 +12,7 @@ router.post("/", async (req, res) => {
     res.status(200).send(savedVideo);
   } catch (err) {
     res.status(400).send(err);
+    console.log(err);
   }
 });
 
