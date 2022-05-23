@@ -17,4 +17,14 @@ mentor_route.post("/", async (req, res) => {
   }
 });
 
+mentor_route.get("/", async (req, res) => {
+  try {
+    const mentors = await Mentor.find();
+    res.json(mentors);
+  } catch (err) {
+    res.status(400).send(err);
+    console.log(err);
+  }
+});
+
 module.exports = mentor_route;
