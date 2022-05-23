@@ -12,6 +12,7 @@ router.post("/register", async (req, res) => {
     res.status(200).send(savedUser);
   } catch (err) {
     res.status(400).send(err);
+    console.log(err);
   }
 });
 
