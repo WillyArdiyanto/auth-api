@@ -52,7 +52,7 @@ mentor_route.delete("/:mentorId", async (req, res) => {
 });
 
 //Update mentor
-mentor_route.delete("/:mentorId", async (req, res) => {
+mentor_route.patch("/:mentorId", async (req, res) => {
   try {
     const updateMentor = await Mentor.updateOne(
       {_id: req.params.mentorId},
