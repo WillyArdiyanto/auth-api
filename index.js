@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
-
+const cors = require("cors");
 dotenv.config();
 
 //DB connection
@@ -13,6 +13,7 @@ const auth_route = require("./routes/auth");
 const mentor_route = require("./routes/mentor");
 const video_route = require("./routes/video")
 //middleware
+app.use(cors());
 app.use(express.json());
 
 //Route middleware
