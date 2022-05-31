@@ -19,6 +19,8 @@ app.use(express.json());
 //Route middleware
 app.use("/api/user", auth_route);
 app.use("/api/mentor", mentor_route);
-app.use("/api/video", video_route)
+app.use("/api/video", video_route);
 
-app.listen(3000, () => console.log("Server is Up and Running"));
+const port = parseInt(process.env.PORT) || 8080;
+
+app.listen(port, () => console.log(`Server is Up and Running at ${port}`));
