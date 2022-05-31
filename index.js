@@ -16,9 +16,13 @@ const video_route = require("./routes/video")
 app.use(cors());
 app.use(express.json());
 
+app.get('/', (req, res) => res.send('api/mentor to access mentor | api/video to access video'));
+
 //Route middleware
 app.use("/api/user", auth_route);
 app.use("/api/mentor", mentor_route);
-app.use("/api/video", video_route)
+app.use("/api/video", video_route);
 
-app.listen(3000, () => console.log("Server is Up and Running"));
+const port = parseInt(process.env.PORT) || 8080;
+
+app.listen(port, () => console.log(`Server is Up and Running at ${port}`));
