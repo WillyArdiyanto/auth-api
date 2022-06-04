@@ -24,6 +24,10 @@ const MentorSchema = new mongoose.Schema({
     required: true,
     min: 1,
   },
+  price: {
+    type: Number,
+    required: true,
+  },
   date: {
     type: Date,
     default: Date.now,

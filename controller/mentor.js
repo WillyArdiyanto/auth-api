@@ -7,6 +7,7 @@ module.exports = {
           email: req.body.email,
           password: req.body.password,
           expertise: req.body.expertise,
+          price: req.body.price,
         });
         try {
           const savedMentor = await mentor.save();
@@ -51,7 +52,8 @@ module.exports = {
               name: req.body.name,
               email: req.body.email,
               password: req.body.password,
-              expertise: req.body.expertise
+              expertise: req.body.expertise,
+              price: req.body.price,
             }});
             res.status(200).json(updateMentor);
         } catch (err) {
