@@ -10,7 +10,7 @@ module.exports = {
         });
         try {
           const savedMentor = await mentor.save();
-          res.status(200).send(savedMentor);
+          res.status(201).send(savedMentor);
         } catch (err) {
           res.status(400).send(err);
           console.log(err);
@@ -19,7 +19,7 @@ module.exports = {
     getAllMentor: async (req, res) => {
         try {
           const mentors = await Mentor.find();
-          res.json(mentors);
+          res.status(200).json(mentors);
         } catch (err) {
           res.status(400).send(err);
           console.log(err);
@@ -28,7 +28,7 @@ module.exports = {
     getMentorById: async (req, res) => {
         try {
           const mentor = await Mentor.findById(req.params.mentorId);
-          res.json(mentor);
+          res.status(200).json(mentor);
         } catch (err) {
           res.status(400).send(err);
           console.log(err);
@@ -37,7 +37,7 @@ module.exports = {
     deleteMentorById: async (req, res) => {
         try {
           const removeMentor = await Mentor.remove({_id: req.params.mentorId});
-          res.json(removeMentor);
+          res.status(200).json(removeMentor);
         } catch (err) {
           res.status(400).send(err);
           console.log(err);
@@ -53,7 +53,7 @@ module.exports = {
               password: req.body.password,
               expertise: req.body.expertise
             }});
-          res.json(updateMentor);
+            res.status(200).json(updateMentor);
         } catch (err) {
           res.status(400).send(err);
           console.log(err);

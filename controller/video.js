@@ -9,7 +9,7 @@ module.exports = {
         });
         try {
           const savedVideo = await video.save();
-          res.status(200).send(savedVideo);
+          res.status(201).send(savedVideo);
         } catch (err) {
           res.status(400).send(err);
           console.log(err);
@@ -18,7 +18,7 @@ module.exports = {
     getAllVideo: async (req, res) => {
         try {
           const videos = await Video.find();
-          res.json(videos);
+          res.status(200).json(videos);
         } catch (err) {
           res.status(400).send(err);
           console.log(err);
@@ -27,7 +27,7 @@ module.exports = {
     getVideoById: async (req, res) => {
         try {
           const video = await Video.findById(req.params.videoId);
-          res.json(video);
+          res.status(200).json(video);
         } catch (err) {
           res.status(400).send(err);
           console.log(err);
@@ -36,7 +36,7 @@ module.exports = {
     deleteVideoById: async (req, res) => {
         try {
           const removeVideo = await Video.remove({_id: req.params.videoId});
-          res.json(removeVideo);
+          res.status(200).json(removeVideo);
         } catch (err) {
           res.status(400).send(err);
           console.log(err);
@@ -51,7 +51,7 @@ module.exports = {
               title: req.body.title,
               link: req.body.link
             }});
-          res.json(updatedVideo);
+            res.status(200).json(updatedVideo);
         } catch (err) {
           res.status(400).send(err);
           console.log(err);
