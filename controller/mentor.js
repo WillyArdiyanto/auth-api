@@ -31,6 +31,10 @@ module.exports = {
     getMentorById: async (req, res) => {
         try {
           const mentor = await Mentor.findById(req.params.mentorId);
+          
+          // with validator
+          // const { mentorId } = req.value.params;
+          // const mentor = await Mentor.findById(mentorId);
           res.status(200).json(mentor);
         } catch (err) {
           res.status(400).send(err);
