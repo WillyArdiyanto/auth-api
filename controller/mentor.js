@@ -1,4 +1,6 @@
 const Mentor = require("../model/mentor");
+const Video = require("../model/video");
+const User = require("../model/user");
 
 module.exports = {
     addMentor: async (req, res) => {
@@ -54,5 +56,73 @@ module.exports = {
           res.status(400).send(err);
           console.log(err);
         }
+    },
+    getMentorVideo: async (req, res) => {
+        try{
+          const mentor = await Mentor.findById(
+            {_id: req.params.mentorId},
+            req.body).populate('video');
+            res.status(200).json(mentor.video);
+            console.log("Mentor\'s video", mentor);
+
+        } catch (err) {
+          res.status(400).send(err);
+          console.log(err);
+        }
+    },
+    addMentorVideo: async (req, res) => {
+      try{
+        //add new video
+        const addVideo = await Video(req.body);
+        //get mentor
+        const mentor = await Mentor.findById(
+          {_id: req.params.mentorId});
+        //assign mentor as a video's owner
+        addVideo.owner = mentor;
+        //save the video
+        await addVideo.save();
+        //add video to the mentor's 
+        mentor.video.push(addVideo);
+        //save the mentor
+        await mentor.save();
+        res.status(201).json(addVideo);
+      } catch (err) {
+        res.status(400).send(err);
+        console.log(err);
+      }
+  },
+  getMentorMentee: async (req, res) => {
+    try{
+      const mentor = await Mentor.findById(
+        {_id: req.params.mentorId},
+        req.body).populate('mentee');
+        res.status(200).json(mentor.mentee);
+        //console.log("Mentor\'s video", mentor);
+
+    } catch (err) {
+      res.status(400).send(err);
+      console.log(err);
     }
+},
+addMentorMentee: async (req, res) => {
+  try{
+    //add new video
+    const addMentee = await User(req.body);
+    //get mentor
+    const mentor = await Mentor.findById(
+      {_id: req.params.mentorId});
+    //assign mentor as a video's owner
+    addMentee.mentor = mentor;
+    //save the video
+    await addMentee.save();
+    //add video to the mentor's 
+    mentor.mentee.push(addMentee);
+    //save the mentor
+    await mentor.save();
+    res.status(201).json(addMentee);
+  } catch (err) {
+    res.status(400).send(err);
+    console.log(err);
+  }
+},
 }

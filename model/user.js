@@ -23,10 +23,10 @@ const userSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
-  mentor: [{
+  mentor: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Mentor'
-  }]
+  }
 });
 
 module.exports = mongoose.model("user", userSchema);

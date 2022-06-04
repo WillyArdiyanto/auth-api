@@ -28,6 +28,14 @@ const MentorSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
+  video:[{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Video'
+  }],
+  mentee:[{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'user'
+  }],
   date: {
     type: Date,
     default: Date.now,
