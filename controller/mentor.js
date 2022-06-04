@@ -46,15 +46,9 @@ module.exports = {
     },
     updateMentorById: async (req, res) => {
         try {
-          const updateMentor = await Mentor.updateOne(
+          const updateMentor = await Mentor.findByIdAndUpdate(
             {_id: req.params.mentorId},
-            {$set: {
-              name: req.body.name,
-              email: req.body.email,
-              password: req.body.password,
-              expertise: req.body.expertise,
-              price: req.body.price,
-            }});
+            req.body);
             res.status(200).json(updateMentor);
         } catch (err) {
           res.status(400).send(err);

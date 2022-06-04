@@ -44,13 +44,9 @@ module.exports = {
     },
     updateVideoById: async (req, res) => {
         try {
-          const updatedVideo = await Video.updateOne(
+          const updatedVideo = await Video.findByIdAndUpdate(
             {_id: req.params.videoId}, 
-            {$set: {
-              mentor: req.body.mentor,
-              title: req.body.title,
-              link: req.body.link
-            }});
+            req.body);
             res.status(200).json(updatedVideo);
         } catch (err) {
           res.status(400).send(err);
