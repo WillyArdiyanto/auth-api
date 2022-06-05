@@ -26,7 +26,19 @@ const userSchema = new mongoose.Schema({
   mentor: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Mentor'
-  }
+  },
+  tickets: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "ticket",
+    },
+  ],
+  booking: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "ticket",
+    },
+  ],
 });
 
 module.exports = mongoose.model("user", userSchema);

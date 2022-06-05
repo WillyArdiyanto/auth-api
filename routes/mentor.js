@@ -13,8 +13,8 @@ mentor_route.route("/")
 mentor_route.route("/:mentorId")
   // .get((validateParam(schemas.idSchema, 'mentorId')), mentorController.getMentorById)//with validator
   .get(mentorController.getMentorById)//without validator
-  .delete(mentorController.deleteMentorById)
-  .patch(mentorController.updateMentorById)
+  //.delete(mentorController.deleteMentorById)
+  //.patch(mentorController.updateMentorById)
 
 mentor_route.route("/:mentorId/video")
   .get(mentorController.getMentorVideo)
@@ -23,5 +23,9 @@ mentor_route.route("/:mentorId/video")
 mentor_route.route("/:mentorId/mentee")
   .get(mentorController.getMentorMentee)
   .post(mentorController.addMentorMentee)
+
+mentor_route.route("/:mentorId/session")
+  .get(mentorController.getMentorSession)
+  .post(mentorController.addMentorSession)
 
 module.exports = mentor_route;
