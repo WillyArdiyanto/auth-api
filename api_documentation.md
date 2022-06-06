@@ -2,7 +2,7 @@
 <ul>
 	<li>URL
 		<ul>
-			<li><code>api/user/register</code></li>
+			<li><code>/api/user/register</code></li>
 		</ul>
 	</li>
   <li>Request Body
@@ -26,7 +26,7 @@
 <ul>
 	<li>URL
 		<ul>
-			<li><code>api/user/login</code></li>
+			<li><code>/api/user/login</code></li>
 		</ul>
 	</li>
   <li>Request Body
@@ -47,7 +47,7 @@
 <ul>
 	<li>URL
 		<ul>
-			<li><code>api/mentor</code></li>
+			<li><code>/api/mentor</code></li>
 		</ul>
 	</li>
 	<li>Method
@@ -74,7 +74,7 @@
 <ul>
 	<li>URL
 		<ul>
-			<li><code>api/mentor</code></li>
+			<li><code>/api/mentor</code></li>
 		</ul>
 	</li>
   <li>Request Body
@@ -106,7 +106,7 @@
 <ul>
 	<li>URL
 		<ul>
-			<li><code>api/mentor/:mentorId</code></li>
+			<li><code>/api/mentor/:mentorId</code></li>
 		</ul>
 	</li>
 	<li>Method
@@ -132,7 +132,7 @@
 <ul>
 	<li>URL
 		<ul>
-			<li><code>api/mentor/:mentorId/video</code></li>
+			<li><code>/api/mentor/:mentorId/video</code></li>
 		</ul>
 	</li>
   <li>Request Body
@@ -160,7 +160,7 @@
 <ul>
 	<li>URL
 		<ul>
-			<li><code>api/mentor/:mentorId/video</code></li>
+			<li><code>/api/mentor/:mentorId/video</code></li>
 		</ul>
 	</li>
 	<li>Method
