@@ -1,8 +1,3 @@
-# API Documentation
-
-<h1>Endpoint</h1>
-<p><a href="https://bantuaku-7oecrdtofa-uc.a.run.app" target="_blank" rel="noopener">https://bantuaku-7oecrdtofa-uc.a.run.app</a></p>
-
 <h1>User Register</h1>
 <ul>
 	<li>URL
@@ -557,5 +552,23 @@
 ]</code></pre></li>
 </ul>
 
-
+<h1>Get booking by session Id</h1>
+<ul>
+	<li>URL
+		<ul>
+			<li><code>/api/booking/session/:sessionId</code></li>
+		</ul>
+	</li>
+  <li>Request Body
+	</li>
+	<li>Method
+		<ul>
+			<li>GET</li>
+		</ul>
+	</li>
+	<li>Response<pre v-pre="" data-lang="json"><code class="lang-json">[
+    "629d75dd543c4d05eae96df8",
+    "629d771b6f2315c2aa1c74b5"
+]</code></pre></li>
+</ul>
 
