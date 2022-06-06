@@ -10,6 +10,10 @@ const sessionSchema = new mongoose.Schema({
     type: Date,
     default: Date.toString,
   },
+  bookList: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Booking",
+  }],
 });
 
 module.exports = mongoose.model("Session", sessionSchema);
